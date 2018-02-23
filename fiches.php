@@ -70,6 +70,9 @@ switch ($_GET['ref']) {
     case "insp":
         include 'fiches_insp.php';
         break;
+    case "edit":
+        include 'fiches_edit.php';
+        break;
 }
 	
 }
