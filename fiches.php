@@ -29,7 +29,7 @@
   <div id="mainmenu">
       <ul>
           <li><a href="index.html" title="">Accueil</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-          <li><a href="fiches.html" title=""class="active">Fiches</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+          <li><a href="fiches.php" title=""class="active">Fiches</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
           <li><a href="#" title="">Utilisateurs</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
           <li><a href="#" title="">Settings</a></li>
       </ul>
@@ -38,12 +38,12 @@
 
     <div id="submenu">
         <ul>
-            <li><a href="#comp" title="">Comprendre</a></li>
-            <li><a href="#obs" title="">Observer</a></li>
-            <li><a href="#insp" title="">Inspiration</a></li>
-            <li><a href="#" title="">Idéation</a></li>
-            <li><a href="#" title="">Prototypage</a></li>
-            <li><a href="#" title="">Tester et Apprendre</a></li>
+            <li><a href="./fiches.php?ref=comp" title=""<?php if($_GET['ref'] == "comp"){echo 'class="active"';}?> >Comprendre</a></li>
+            <li><a href="./fiches.php?ref=obs" title=""<?php if($_GET['ref'] == "obs"){echo 'class="active"';}?> >Observer</a></li>
+            <li><a href="./fiches.php?ref=insp" title=""<?php if($_GET['ref'] == "insp"){echo 'class="active"';}?> >Inspiration</a></li>
+            <li><a href="#" title=""<?php if($_GET['ref'] == "insp"){echo 'class="active"';}?>>Idéation</a></li>
+            <li><a href="#" title=""<?php if($_GET['ref'] == "insp"){echo 'class="active"';}?>>Prototypage</a></li>
+            <li><a href="#" title=""<?php if($_GET['ref'] == "insp"){echo 'class="active"';}?>>Tester et Apprendre</a></li>
         </ul>
         <div class="clear"></div>
     </div>
@@ -55,26 +55,28 @@
 
                 <!-- block Fade in/out Message box -->
 
-                <h3><span class="title">Bienvenue sur le portail de configuration</span><span class="underlined">&nbsp;</span></h3>
+                <h3><span class="title">Module d'edition des fiches</span><span class="underlined">&nbsp;</span></h3>
 				<?php
 					
 if(isset($_GET['ref'])){
-	
+
+switch ($_GET['ref']) {
+    case "comp":
+        include 'fiches_comp.php';
+        break;
+    case "obs":
+        include 'fiches_obs.php';
+        break;
+    case "insp":
+        include 'fiches_insp.php';
+        break;
+}
 	
 }
 else{
 	echo '<div style="margin-left: :20px; margin-right :20px; text-align: center">
-					<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales arcu eget lectus tincidunt hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis est quam, scelerisque at consectetur non, scelerisque sed sapien. Ut laoreet finibus ligula. Fusce fermentum, magna sit amet venenatis imperdiet, est quam dignissim felis, vel maximus diam quam eget justo. In congue venenatis purus vitae dignissim. Quisque in mauris et ex gravida bibendum id non nunc. Donec mauris tellus, lobortis nec dignissim sed, consequat nec arcu. Donec interdum tincidunt suscipit. Vestibulum elementum venenatis magna at euismod. Phasellus ut nisi ac arcu pharetra semper id vitae nibh. Vivamus metus augue, convallis sed mi non, dignissim semper velit. Quisque porttitor nisl non enim ultricies, a congue tortor bibendum. Ut commodo efficitur metus, vulputate volutpat metus consectetur ut. Sed vehicula nisl nulla, non semper arcu varius non. Morbi nec vestibulum erat, vel lobortis nunc.
-				<p>
-
-Vestibulum scelerisque euismod sem nec tempus. Morbi nibh ante, cursus suscipit ornare in, lacinia in magna. Fusce volutpat eros quis vehicula pellentesque. Cras egestas diam sed justo placerat, ut convallis erat interdum. Vestibulum condimentum volutpat nunc dapibus mollis. Mauris ac tincidunt erat. Nam sodales turpis non commodo commodo.
-<p>
-
-Aliquam mollis vel risus ut vulputate. Etiam at mauris laoreet, ornare ex sed, placerat nisi. Ut ac nibh urna. In scelerisque pretium laoreet. Mauris porta eget urna vehicula vehicula. Quisque ornare porttitor lorem, at consectetur leo cursus et. Fusce ut sapien tellus. Suspendisse et ex nibh. Curabitur sit amet auctor quam, vel blandit nunc. Nunc in tristique libero. Donec tempus consequat dui, eu pellentesque felis egestas ut. Pellentesque pulvinar hendrerit convallis. Mauris euismod et ligula a vehicula. Etiam risus nisi, volutpat ac ipsum in, auctor commodo diam. 
-Aliquam quis iaculis augue, at consequat enim. Integer imperdiet pellentesque arcu quis rhoncus.	
-<p>
-				</div>';
+					<h1>Good Luck ;)</h1>
+					</div>';
 }
 ?>
 				
@@ -86,9 +88,7 @@ Aliquam quis iaculis augue, at consequat enim. Integer imperdiet pellentesque ar
   <!-- Footer -->
   <div id="footer">
       <ul>
-          <li>Template by <a href="http://www.wareteam.com" title="Yassine HANINI">Y.Hanini</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-          <li>&copy;2008 <a href="#" title="">Yoursitename</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-          <li>Powered by <a href="#" title="">YourCMS</a></li>
+          <h3>Facilite-moi - 2018</h1>
       </ul>
   </div>
 
